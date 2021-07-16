@@ -6,7 +6,7 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// Routes
+// Routes for displaying html pages:
 
 // Homepage route
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "home.html")));
@@ -18,6 +18,11 @@ app.get("/tables", (req, res) =>
 app.get("/reserve", (req, res) =>
   res.sendFile(path.join(__dirname, "reserve.html"))
 );
+
+// Gets and posts for table data
+
+// Tables GET
+app.get('/tables', (req, res) => res.json(tables));
 // Reservation POST
 app.post("/api/characters", (req, res) => {
     const newReservation = req.body;
